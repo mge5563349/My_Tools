@@ -73,6 +73,5 @@ if [ $? -ne 0 ];then
         exit 1
 fi
 
-alias_command
 echo_notified
 
