@@ -21,7 +21,7 @@ fi
 cmd_dir=/usr/cmd
 which shutdown >> /dev/null 2>&1
 if [ $? = 0 ];then
-    $(S_SHUTDOWN=$(which shutdown)) &>> /dev/null 
+    S_SHUTDOWN=$(which shutdown) 
     mv $S_SHUTDOWN $cmd_dir >> /dev/null 2&>1
     if [ $? -ne 0 ];then
         	if [ ! -f /usr/cmd/shutdown ];then
@@ -35,7 +35,7 @@ fi
 
 which reboot >> /dev/null 2>&1
 if [ $? = 0 ];then
-	$(S_REBOOT=$(which reboot)) &>> /dev/null
+	S_REBOOT=$(which reboot) &>> /dev/null
         mv $S_REBOOT $cmd_dir >> /dev/null 2&>1
         if [ $? -ne 0 ];then
                 if [ ! -f /usr/cmd/reboot ];then
@@ -50,7 +50,7 @@ fi
 
 which init >> /dev/null 2>&1
 if [ $? = 0 ];then
-	$(S_INIT=$(which init)) &>> /dev/null
+	S_INIT=$(which init) &>> /dev/null
 	mv $S_INIT $cmd_dir >> /dev/null 2&>1
 	if [ $? -ne 0 ];then
         	if [ ! -f /usr/cmd/init ];then
