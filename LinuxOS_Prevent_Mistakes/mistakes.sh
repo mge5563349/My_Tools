@@ -22,7 +22,7 @@ cmd_dir=/usr/cmd
 which shutdown >> /dev/null 2>&1
 if [ $? = 0 ];then
     S_SHUTDOWN=$(which shutdown) 
-    mv $S_SHUTDOWN $cmd_dir >> /dev/null 2&>1
+    mv $S_SHUTDOWN $cmd_dir >> /dev/null 2>&1
     if [ $? -ne 0 ];then
         	if [ ! -f /usr/cmd/shutdown ];then
 	        	echo "System OS does not exist shutdown command,exit!"
@@ -36,7 +36,7 @@ fi
 which reboot >> /dev/null 2>&1
 if [ $? = 0 ];then
 	S_REBOOT=$(which reboot) &>> /dev/null
-        mv $S_REBOOT $cmd_dir >> /dev/null 2&>1
+        mv $S_REBOOT $cmd_dir >> /dev/null 2>&1
         if [ $? -ne 0 ];then
                 if [ ! -f /usr/cmd/reboot ];then
                         echo "System OS does not exist reboot command,exit!"
@@ -51,7 +51,7 @@ fi
 which init >> /dev/null 2>&1
 if [ $? = 0 ];then
 	S_INIT=$(which init) &>> /dev/null
-	mv $S_INIT $cmd_dir >> /dev/null 2&>1
+	mv $S_INIT $cmd_dir >> /dev/null 2>&1
 	if [ $? -ne 0 ];then
         	if [ ! -f /usr/cmd/init ];then
                 	echo "System OS does not exist init command,exit!"
