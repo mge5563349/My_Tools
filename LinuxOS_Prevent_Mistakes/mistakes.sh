@@ -81,20 +81,6 @@ run_as_root() {
 	fi
 }
 
-ch_attr() {
-    chattr +i /boot
-    chattr +i /etc
-    chattr +i /home
-    chattr +i /mnt
-    chattr +i /opt
-    chattr +i /root
-    chattr +i /srv
-    chattr +i /var
-    if [ -d /application ];then
-        chattr +i /application
-    fi
-}
-
 customize_file() {
     read -p "Type your customize directory or file:" file
     chattr -i $file
@@ -117,6 +103,5 @@ else
             exit 1
     fi
 
-    ch_attr
     echo_notified
 fi
