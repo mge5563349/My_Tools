@@ -89,7 +89,6 @@ ch_attr() {
     chattr +i /opt
     chattr +i /root
     chattr +i /srv
-    chattr +i /usr
     chattr +i /var
     if [ -d /application ];then
         chattr +i /application
