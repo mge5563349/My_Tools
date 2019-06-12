@@ -13,6 +13,7 @@ move_command() {
 if [ ! -d /usr/cmd ];then
 	mkdir /usr/cmd -p
 fi
+} 
 
 file_trush() {
     chmod +x saferm
