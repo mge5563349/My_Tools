@@ -24,7 +24,7 @@ fi
 ip=`ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1' | grep -Ev  '192.*$' | grep -Ev '172.*$' | grep -Ev '10.*$'`
 echo $ip >> /dev/null
 if [[ -z $ip ]] ; then
-	hostname=$(cat /etc/sysconfig/network | grep 'HOSTNAME' | awk -F '=' '{print $2}')
+	hostname=$(hostname)
 fi
 
 
