@@ -65,24 +65,23 @@ if [[ -z $ip ]] ; then
 else
 	echo "$ip" >> /home/monitor//monitor.txt
 fi
-echo "start_time:$start_time" >> /home/monitor/monitor.txt
-echo "run_time:$run_time" >> /home/monitor/monitor.txt
-echo "fifteen_load:$fifteen_load" >> /home/monitor/monitor.txt
-echo "cpu_proc_num:$cpu_proc_num" >> /home/monitor/monitor.txt
-echo "cpu_us:$cpu_us" >> /home/monitor/monitor.txt
-echo "cpu_sy:$cpu_sy" >> /home/monitor/monitor.txt
-echo "cpu_id:$cpu_id" >> /home/monitor/monitor.txt
-echo "cpu_wa:$cpu_wa" >> /home/monitor/monitor.txt
-echo "cpu_st:$cpu_st" >> /home/monitor/monitor.txt
-echo "mem_total:$mem_total" >> /home/monitor/monitor.txt
-echo "mem_used:$mem_used" >> /home/monitor/monitor.txt
-echo "mem_free:$mem_free" >> /home/monitor/monitor.txt
-echo "mem_shared:$mem_shared" >> /home/monitor/monitor.txt
-echo "mem_shared:$mem_shared" >> /home/monitor/monitor.txt
-echo "mem_buf_cache:$mem_buf_cache" >> /home/monitor/monitor.txt
-echo "mem_available:$mem_available" >> /home/monitor/monitor.txt
-echo "swap_total:$swap_total">> /home/monitor/monitor.txt
-echo "swap_used:$swap_used">> /home/monitor/monitor.txt
-echo "swap_free:$swap_free">> /home/monitor/monitor.txt
-df -H | grep -vE '^Filesystem|tmpfs|cdrom' | awk '{ print $5 " " $1 }' >> /home/monitor/monitor.txt
+echo "系统启动时间:$start_time" >> /home/monitor/monitor.txt
+echo "系统运行时间:$run_time" >> /home/monitor/monitor.txt
+echo "中央处理器15分钟负载:$fifteen_load" >> /home/monitor/monitor.txt
+echo "中央处理器正在处理程序的个数:$cpu_proc_num" >> /home/monitor/monitor.txt
+echo "用户所占中央处理器的百分比:$cpu_us" >> /home/monitor/monitor.txt
+echo "内核所占中央处理器的百分比:$cpu_sy" >> /home/monitor/monitor.txt
+echo "中央处理器空闲率:$cpu_id" >> /home/monitor/monitor.txt
+echo "中央处理器等待IO的百分比:$cpu_wa" >> /home/monitor/monitor.txt
+echo "虚拟机被hypervisor使用的时间:$cpu_st" >> /home/monitor/monitor.txt
+echo "内存总量:$mem_total" >> /home/monitor/monitor.txt
+echo "内存使用量:$mem_used" >> /home/monitor/monitor.txt
+echo "内存剩余:$mem_free" >> /home/monitor/monitor.txt
+echo "内存共享:$mem_shared" >> /home/monitor/monitor.txt
+echo "内存的缓存和缓冲:$mem_buf_cache" >> /home/monitor/monitor.txt
+echo "可用内存:$mem_available" >> /home/monitor/monitor.txt
+echo "swap空间总量:$swap_total">> /home/monitor/monitor.txt
+echo "已使用swap空间:$swap_used">> /home/monitor/monitor.txt
+echo "剩余swap空间:$swap_free">> /home/monitor/monitor.txt
+df -H | grep -vE '^Filesystem|tmpfs|cdrom' | awk '{ print "总磁盘量：" $2 " 已用空间：" $3 " 磁盘剩余空间：" $4 " 磁盘盘路径：" $1}' >> /home/monitor/monitor.txt
     
